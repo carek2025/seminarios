@@ -1,6 +1,5 @@
 import numpy as np
 import re
-import pandas as pd
 arr1=np.array([int(x) for x in re.split(r"\s",input("Dame 5 numeros separados por espacio: "))])
 arr2=np.array([int(x) for x in re.split(r"\s",input("Dame 5 numeros separados por espacio: "))])
 print(arr1*arr2)
