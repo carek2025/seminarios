@@ -1,0 +1,13 @@
+path: "C:\carlos_enrique\seminarios\clase_6\Algoritmo de vision computacional\data"
+train: images\train
+val: images\val
+test:
+
+names:
+  0: Celular
+  1: Lentes
+  2: Lapicero
+
+
+# Download script/URL (optional)
+download: https://github.com/ultralytics/assets/releases/download/v0.0.0/coco128.zip
