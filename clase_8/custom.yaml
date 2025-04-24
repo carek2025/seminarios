@@ -1,0 +1,14 @@
+path: "C:\\carlos_enrique\\data"
+train: images\train
+val: images\val
+test:
+
+names:
+  0: oso
+  1: gato
+  2: delfin
+  3: rata
+
+
+# Download script/URL (optional)
+download: https://github.com/ultralytics/assets/releases/download/v0.0.0/coco128.zip
