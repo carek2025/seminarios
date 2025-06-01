@@ -4,9 +4,11 @@ from tensorflow.keras.models import load_model
 import tkinter as tk
 from ttkbootstrap import Style
 from ttkbootstrap.constants import *
+from tkinter import ttk
 from PIL import Image, ImageTk
 import datetime
 import os
+os.environ["CUDA_VISIBLE_DEVICES"] = ""  # Deshabilita la GPUs
 from tkinter import messagebox
 import threading
 
@@ -17,7 +19,7 @@ class EmotionDetectorApp:
         self.style = Style(theme='flatly')  # Cambia 'darkly' por un tema disponible # Tema moderno
         
         # Inicializar variables
-        self.modelo = load_model(r"C:\carlos_enrique\modelo-de-deteccion-de-emociones-python-tensorflow-dataset\modelo_emociones_optimizado.h5")
+        self.modelo = load_model(r"/home/carlos/deteccion de emociones 2.0/modelo_emociones_optimizado.h5")
         self.emociones = ["Ira", "Asco", "Miedo", "Felicidad", "Tristeza", "Sorpresa", "Neutral"]
         self.face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
         self.cap = None
@@ -49,23 +51,23 @@ class EmotionDetectorApp:
         self.controls_frame.pack(side=TOP, fill=X, pady=10)
 
         # Botones
-        self.btn_start = tk.Button(self.controls_frame, text="Iniciar", style='primary.TButton', 
+        self.btn_start = ttk.Button(self.controls_frame, text="Iniciar", style='primary.TButton', 
                                  command=self.start_capture)
         self.btn_start.pack(side=LEFT, padx=5)
 
-        self.btn_stop = tk.Button(self.controls_frame, text="Pausar", style='secondary.TButton', 
+        self.btn_stop = ttk.Button(self.controls_frame, text="Pausar", style='secondary.TButton', 
                                 command=self.stop_capture, state=DISABLED)
         self.btn_stop.pack(side=LEFT, padx=5)
 
-        self.btn_screenshot = tk.Button(self.controls_frame, text="Captura", style='info.TButton', 
+        self.btn_screenshot = ttk.Button(self.controls_frame, text="Captura", style='info.TButton', 
                                       command=self.take_screenshot, state=DISABLED)
         self.btn_screenshot.pack(side=LEFT, padx=5)
 
-        self.btn_switch = tk.Button(self.controls_frame, text="Cambiar Cámara", style='warning.TButton',
+        self.btn_switch = ttk.Button(self.controls_frame, text="Cambiar Cámara", style='warning.TButton',
                                   command=self.switch_camera)
         self.btn_switch.pack(side=LEFT, padx=5)
 
-        self.btn_fullscreen = tk.Button(self.controls_frame, text="Pantalla Completa", style='success.TButton',
+        self.btn_fullscreen = ttk.Button(self.controls_frame, text="Pantalla Completa", style='success.TButton',
                                       command=self.toggle_fullscreen)
         self.btn_fullscreen.pack(side=LEFT, padx=5)
 
